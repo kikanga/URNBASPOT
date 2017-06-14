@@ -1,0 +1,27 @@
+{
+  "name": "NBA stats",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "assert": "^1.4.1",
+    "async": "^2.4.1",
+    "body-parser": "^1.17.2",
+    "cheerio": "^1.0.0-rc.1",
+    "express": "^4.15.3",
+    "mongojs": "^2.4.0",
+    "mongoose": "^4.10.6",
+    "morgan": "^1.8.2",
+    "nba": "^3.2.6",
+    "nba.js": "^0.4.1",
+    "probasketball-api": "0.0.1",
+    "request": "^2.69.0",
+    "spotify": "^0.3.0",
+    "twitter": "^1.2.5"
+  }
+}
