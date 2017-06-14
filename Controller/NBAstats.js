@@ -95,6 +95,10 @@ NBA.stats.playerSplits({ PlayerID: curry.playerId }).then(info => {
                     } 
                 });
 
+
+
+
+
 });
 
 }, 1500)
