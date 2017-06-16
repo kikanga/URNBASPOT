@@ -1,5 +1,5 @@
 {
-  "name": "NBA stats",
+  "name": "NBAstats",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -18,10 +18,19 @@
     "mongoose": "^4.10.6",
     "morgan": "^1.8.2",
     "nba": "^3.2.6",
-    "nba.js": "^0.4.1",
     "probasketball-api": "0.0.1",
+    "react": "^0.14.3",
+    "react-bootstrap": "^0.31.0",
+    "react-dom": "^0.14.3",
     "request": "^2.69.0",
     "spotify": "^0.3.0",
     "twitter": "^1.2.5"
+  },
+  "devDependencies": {
+    "babel-core": "^6.3.13",
+    "babel-loader": "^6.2.0",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "webpack": "^1.13.1"
   }
 }
