@@ -44,8 +44,8 @@ db.on('error', function (err) {
 ///Must be turned on to push to database
 // require("./Controller/NBAstats.js")(app);
 
-// require("./Controller/BulkGrabbingStats.js")(app);
-require("./Controller/nbaTest.js")(app);
+require("./Controller/BulkGrabbingStats.js")(app);
+// require("./Controller/nbaTest.js")(app);
 
 //Listening to the port 3000 or the environment PORT
 app.listen(process.env.PORT || 3000, function()  {
