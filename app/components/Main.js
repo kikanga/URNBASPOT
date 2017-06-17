@@ -7,7 +7,10 @@ import Navbar from "./Navbar";
 // import Team from "./parents/Team";
 // import User from "./parents/User";
 import Previous from "./children/Players/Previous";
+import Teaminfo from "./children/Team/Teaminfo";
+import Roster from "./children/Team/Roster";
 
+import Standings from "./children/Home/Standings";
 
  // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
       // <Route path="/" Component={Home}> </Route>
@@ -48,6 +51,9 @@ return (
 
 <Navbar> </Navbar> 
 <div className="col-md-12"> <Previous /></div>
+<div className="col-md-2"> <Roster /></div>
+<div className="col-md-7"> <Teaminfo /></div>
+<div className="col-md-3"> <Standings /></div>
 
 
 </div> 

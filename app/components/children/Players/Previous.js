@@ -1,6 +1,5 @@
 import React from "react";
 import { Tabs, Tab, TabPane, Table} from 'react-bootstrap';
-import classnames from 'classnames';
 
 
 // To use props in class components, reference `this.props`

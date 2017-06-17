@@ -23,7 +23,6 @@ class General extends React.Component {
 render() {
   return (
  <div>
- // xs ="12" sm="4" md="4"
   		<div>
 	  		 <Grid>
 			    <Row>
