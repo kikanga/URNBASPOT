@@ -1,6 +1,5 @@
 import React from "react";
 import { Tabs, Tab, TabPane, Table} from 'react-bootstrap';
-import classnames from 'classnames';
 
 
 // To use props in class components, reference `this.props`
@@ -8,14 +7,13 @@ class Previous extends React.Component {
   constructor(props) {
     super(props);
 	    this.state ={
-	      key: 2
+	      key: 1
 	  }
 
 	  this.handleSelect = this.handleSelect.bind(this)
 
   }
 	  handleSelect(key) {
-	  	console.log("Clicked")
 	    this.setState({key});
 	  }
 
@@ -24,12 +22,12 @@ class Previous extends React.Component {
       <div>
       <Tabs activeKey={this.state.key} onSelect={this.handleSelect} id="controlled-tab-example">
         <Tab eventKey={1} title="Traditional">
-
+<button value="2544" ID="2544"> LBJ </button> 
 <Table responsive striped bordered condensed hover>
     <thead>
       <tr>
         <th>#</th>
-        <th>Table heading</th>
+        <th>Name</th>
         <th>Table heading</th>
 
       </tr>
@@ -37,7 +35,7 @@ class Previous extends React.Component {
     <tbody>
       <tr>
         <td>1</td>
-        <td>Table cell</td>
+        <td>{this.props.Name}</td>
         <td>Table cell</td>
 
       </tr>      <tr>

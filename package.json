@@ -2,15 +2,19 @@
   "name": "NBAstats",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+ "main": "server.js",
   "scripts": {
+    "dev": "webpack -w",
+    "start": "webpack && node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+
   "author": "",
   "license": "ISC",
   "dependencies": {
     "assert": "^1.4.1",
     "async": "^2.4.1",
+    "axios": "^0.16.2",
     "babel": "^6.23.0",
     "babel-cli": "^6.24.1",
     "bcrypt": "^1.0.2",

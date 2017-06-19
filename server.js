@@ -1,14 +1,14 @@
 //Dependencies
 var express 		= require('express');
-var exphbs 			= require('express-handlebars');
-var bodyParser 	= require('body-parser');
+// var exphbs 			= require('express-handlebars');
+var bodyParser 		= require('body-parser');
 var mongoose 		= require('mongoose');
 var request 		= require('request');
 var cheerio 		= require('cheerio');
-var logger = require('morgan'); // for debugging
+var logger 			= require('morgan'); // for debugging
 
 //Models
-var Player 		= require('./models/Player.js');
+var Player 			= require('./models/Player.js');
 // var Team 		= require('./models/Team.js');
 
 //Express
@@ -44,8 +44,35 @@ db.on('error', function (err) {
 ///Must be turned on to push to database
 // require("./Controller/NBAstats.js")(app);
 
-require("./Controller/BulkGrabbingStats.js")(app);
-// require("./Controller/nbaTest.js")(app);
+
+// This is the route we will send GET requests to retrieve our most recent search data.
+// We will call this route the moment our page gets rendered
+app.get("/api/players", function(req, res) {
+
+  // We will find all the records
+  Player.find({}).exec(function(err, doc) {
+    if (err) {
+      console.log(err);
+    }
+    else {
+      res.send(doc);
+    }
+  });
+});
+
+app.get("/api/players/:PlayerID", function(req, res) {
+
+  // We will find all the records
+  Player.find({PlayerID: req.params.PlayerID}).exec(function(err, doc) {
+    if (err) {
+      console.log(err);
+    }
+    else {
+      res.send(doc[0].name);
+    }
+  });
+});
+
 
 //Listening to the port 3000 or the environment PORT
 app.listen(process.env.PORT || 3000, function()  {
