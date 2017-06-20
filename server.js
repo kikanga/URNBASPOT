@@ -68,7 +68,7 @@ app.get("/api/players/:PlayerID", function(req, res) {
       console.log(err);
     }
     else {
-      res.send(doc[0].name);
+      res.send(doc);
     }
   });
 });

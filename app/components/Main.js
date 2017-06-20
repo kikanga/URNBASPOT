@@ -7,6 +7,7 @@ import Navbar from "./Navbar";
 // import Team from "./parents/Team";
 // import User from "./parents/User";
 import Previous from "./children/Players/Previous";
+import General from "./children/Players/General";
 import Teaminfo from "./children/Team/Teaminfo";
 import Roster from "./children/Team/Roster";
 import Standings from "./children/Home/Standings";
@@ -22,27 +23,41 @@ import helpers from "./utils/helpers.js";
  //      __________
  //      <Route path="/user" Component={User}> </Route>
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// <div className="col-md-2"> <Roster /></div>
+// <div className="col-md-7"> <Teaminfo /></div>
+// <div className="col-md-3"> <Standings /></div>
+// <div className="col-md-12"> <button value="2544" ID="2544" onClick={this.handleClick}> LBJ </button> <Previous Name={this.state.playerData}/></div>
+
 
 class Main extends  React.Component {
 
   constructor(props) {
     super();
-    // If we are assigning an object property to an existing variable with the same name,
-    // we can use this shorthand assignment syntax
-    // Notice the data property here and the data const defined above the component
-    this.state = { name: "", playerID: "", playerData: []};
+// Creating the states that will be passed to the children:
+    this.state = { name: "", playerID: "", playerData: [] };
     // this.setTerm = this.setTerm.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
-  // componentDidMount(playerID) {
-
-  // }
+componentDidMount() {
+    fetch('/api/players')
+      .then((resp) => resp.json()) // Transform the data into json
+      .then((data) => {
+        console.log(data)
+        this.setState({
+          playerData: data,
+        });
+        console.log(this.state.playerData)
+      });
+  }
 
   componentDidUpdate() {
+    // After button is clicked (handleclick func), we run this function to go to the api and grab that player by ID
     helpers.getPlayer(this.state.playerID).then(function (response) {
     console.log(response);
-    this.setState({name: response.data})
+    // set the state to the data recieved and then it will be passed down.
+    this.setState({playerData: response.data})
+    console.log("here")
     }.bind(this));
   }
 
@@ -60,19 +75,15 @@ class Main extends  React.Component {
     });
   }
 
-  render() {
 
+  render() {
 //need to use react routers
 return (
 
 <div className="container">
 
 <Navbar> </Navbar> 
-<div className="col-md-12"> <button value="2544" ID="2544" onClick={this.handleClick}> LBJ </button> <Previous Name={this.state.name}/></div>
-<div className="col-md-2"> <Roster /></div>
-<div className="col-md-7"> <Teaminfo /></div>
-<div className="col-md-3"> <Standings /></div>
-
+     <div className="col-md-12"> <Previous Data={this.state.playerData}/></div>
 
 </div> 
     );
@@ -81,3 +92,53 @@ return (
 
 // Export the componen back for use in other files
 export default Main;
+
+// <button value="2544" ID="2544" onClick={this.handleClick}> LBJ </button> 
+
+// This is for the General info
+// componentDidMount() {
+//     fetch('/api/players')
+//       .then((resp) => resp.json()) // Transform the data into json
+//       .then((data) => {
+//         console.log(data)
+//         this.setState({
+//           playerData: data,
+//         });
+//         console.log(this.state.playerData)
+//       });
+//   }
+
+
+
+  //   updateText(event) {
+  //   this.setState({
+  //     name: event.target.value
+  //   });
+  // }
+
+  // render() {
+  //   var filtered = this.state.playerData.filter((data) => {
+  //     if (data.name.toLowerCase().indexOf(this.state.name.toLowerCase()) != -1)
+  //       return true;
+  //     else
+  //       return false;
+  //   });
+
+ // <div>
+ //        <input
+ //          type="text"
+ //          placeholder="search"
+ //          value={this.state.name}
+ //          onChange={this.updateText}
+ //        />
+
+ //        <ul>
+ //        {
+ //          filtered.map((data) => {
+ //            return (
+ //              <p key={data.PlayerID} value={data.PlayerID} obj={data.name}> {data.name} </p>
+ //            );
+ //          })
+ //        }
+ //        </ul>
+ //      </div>
