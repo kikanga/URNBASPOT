@@ -33,6 +33,7 @@ render() {
             </Col>
               <p> Name: {search.name} </p> 
               <p> Height/Weight: {search.height} / {search.weight}  </p> 
+              <p> Weight: {search.weight}  </p>
               <p> Years Played: {search.seasonExp} </p> 
               <p> Position: {search.position}  </p> 
               <p> Jersey: # {search.jersey}  </p> 

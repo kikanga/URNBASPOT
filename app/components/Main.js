@@ -8,7 +8,7 @@ import Navbar from "./Navbar";
 // import User from "./parents/User";
 import Previous from "./children/Players/Previous";
 import General from "./children/Players/General";
-import Teaminfo from "./children/Team/Teaminfo";
+import Current from "./children/Players/Current";
 import Roster from "./children/Team/Roster";
 import Standings from "./children/Home/Standings";
 
@@ -83,8 +83,8 @@ return (
 <div className="container">
 
 <Navbar> </Navbar> 
-     <div className="col-md-12"> <Previous Data={this.state.playerData}/></div>
 
+     <div className="col-md-12"> <Previous Data={this.state.playerData}/></div>
 </div> 
     );
   }

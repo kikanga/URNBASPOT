@@ -12,11 +12,9 @@ class Search extends React.Component {
 			playerData: [],
 			open: false
 		};
-
 		this.updateText = this.updateText.bind(this);
 		this.focus = this.focus.bind(this);
 		this.blur = this.blur.bind(this);
-
 	}
 
 
@@ -32,7 +30,6 @@ componentDidMount() {
   }
 
    updateText(event) {
-
     this.setState({
       name: event.target.value
     });
@@ -46,14 +43,12 @@ focus (){
 }
 
 blur (){
-
 	this.setState({
 		open: false
 	})
 }
 
   render() {
-
   	var style ={
   	width: "200px",
     height: "100px",
@@ -85,7 +80,7 @@ if (this.state.open === true) {
 		 <FormGroup>
           <input type="text"
           	className="form-control js-quick-search tt-input" 
-          	  placeholder="Search" 
+           	  placeholder="Search" 
           	  value={this.state.name}
 	          onChange={this.updateText}
 	          onFocus= {this.focus}
