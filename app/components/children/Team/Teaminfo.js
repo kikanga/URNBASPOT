@@ -11,23 +11,30 @@ class Teaminfo extends React.Component {
     // we can use this shorthand assignment syntax
     // Notice the data property here and the data const defined above the component
     this.state = {
-      title: "Team Name"
+      title: ""
     };
 }
 
 render() {
   return (
   <div>
-    <Panel header={this.state.title}>
-<Image src="#" responsive />
+
+     {this.props.Data.map(function(search, i) {
+        return (           
+     
+    <Panel header={search.teamName2017}> 
+<Image src={search.image} rounded responsive />
  <ListGroup>
-    <ListGroupItem header="Team Record">41-41</ListGroupItem>
-    <ListGroupItem header="Team Record">41-41</ListGroupItem>
-    <ListGroupItem header="Team Record">41-41</ListGroupItem>
-    <ListGroupItem header="Team Website" href="#">www.team.com</ListGroupItem>
+    <p>Team Record: {search.w2017}-{search.l2017}</p>
+    <p>Winning %: {search.wPct2017}</p>
+    <p href={search.website}>Team Website: {search.website}</p>
   </ListGroup>
     </Panel>
+  
+  );
+        }.bind(this))}
   </div>
+
 );
 
   }

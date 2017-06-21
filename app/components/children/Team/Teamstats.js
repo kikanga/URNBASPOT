@@ -1,22 +1,8 @@
 import React from "react";
-import { Tabs, Tab, TabPane, Table} from 'react-bootstrap';
-
 
 // To use props in class components, reference `this.props`
-class Current extends React.Component {
-  constructor(props) {
-    super(props);
-      this.state ={
-        key: 1
-    }
-
-    this.handleSelect = this.handleSelect.bind(this)
-
-  }
-    handleSelect(key) {
-      this.setState({key});
-    }
-
+// Copied this from my MERN. Will need to be adjusted but nice to have with the .map functionality.
+class Teamstats extends React.Component {
   render() {
     return (
       <div>
@@ -239,4 +225,5 @@ class Current extends React.Component {
     );
   }
 }
-export default Current;
+
+export default Teamstats;

@@ -33,7 +33,6 @@ class Previous extends React.Component {
 		<th>RPG</th>
 		<th>BPG</th>
 		<th>SPG</th>
-		<th>+/-</th>
 		<th>GP</th>
 		<th>GS</th>
 		<th>MPG</th>
@@ -50,7 +49,6 @@ class Previous extends React.Component {
 		<th>3pP</th>
 		<th>TO</th>
 		<th>FPG</th>
-		<th>DFPG</th>
 
 
       </tr>
@@ -66,9 +64,8 @@ class Previous extends React.Component {
 		<td>{search.lastRPG}</td>
 		<td>{search.lastBPG}</td>
 		<td>{search.lastSPG}</td>
-		<td>{search.lastPlusMinus}</td>
 		<td>{search.lastGP}</td>
-		<td>{search.lastGamesStarted}</td>		
+		<td>{search.lastgamesStarted}</td>		
 		<td>{search.lastMPG}</td>
 		<td>{search.lastDRPG}</td>
 		<td>{search.lastORPG}</td>
@@ -83,7 +80,7 @@ class Previous extends React.Component {
 		<td>{search.last3pP}</td>
 		<td>{search.lastTO}</td>
 		<td>{search.lastFoulsPG}</td>
-		<td>{search.lastFoulsPGDrawn}</td>
+
 
 
       </tr>
@@ -100,7 +97,6 @@ class Previous extends React.Component {
 		<th>RPG</th>
 		<th>BPG</th>
 		<th>SPG</th>
-		<th>+/-</th>
 		<th>GP</th>
 		<th>GS</th>
 		<th>MPG</th>
@@ -117,7 +113,6 @@ class Previous extends React.Component {
 		<th>3pP</th>
 		<th>TO</th>
 		<th>FPG</th>
-		<th>DFPG</th>
       </tr>
     </thead>
       {this.props.Data.map(function(search, i) {
@@ -131,9 +126,8 @@ class Previous extends React.Component {
 		<td>{search.lastPlayoffRPG}</td>
 		<td>{search.lastPlayoffBPG}</td>
 		<td>{search.lastPlayoffSPG}</td>
-		<td>{search.lastPlayoffPlusMinus}</td>
 		<td>{search.lastPlayoffGP}</td>
-		<td>{search.lastPlayoffGamesStarted}</td>		
+		<td>{search.lastPlayoffgamesStarted}</td>		
 		<td>{search.lastPlayoffMPG}</td>
 		<td>{search.lastPlayoffDRPG}</td>
 		<td>{search.lastPlayoffORPG}</td>
@@ -148,7 +142,6 @@ class Previous extends React.Component {
 		<td>{search.lastPlayoff3pP}</td>
 		<td>{search.lastPlayoffTO}</td>
 		<td>{search.lastPlayoffFoulsPG}</td>
-		<td>{search.lastPlayoffFoulsPGDrawn}</td>
 
 
       </tr>
@@ -166,7 +159,6 @@ class Previous extends React.Component {
 		<th>RPG</th>
 		<th>BPG</th>
 		<th>SPG</th>
-		<th>+/-</th>
 		<th>GP</th>
 		<th>GS</th>
 		<th>MPG</th>
@@ -183,7 +175,6 @@ class Previous extends React.Component {
 		<th>3pP</th>
 		<th>TO</th>
 		<th>FPG</th>
-		<th>DFPG</th>
 
 
       </tr>
@@ -199,9 +190,8 @@ class Previous extends React.Component {
 		<td>{search.twenty15RPG}</td>
 		<td>{search.twenty15BPG}</td>
 		<td>{search.twenty15SPG}</td>
-		<td>{search.twenty15PlusMinus}</td>
 		<td>{search.twenty15GP}</td>
-		<td>{search.twenty15GamesStarted}</td>		
+		<td>{search.twenty15gamesStarted}</td>		
 		<td>{search.twenty15MPG}</td>
 		<td>{search.twenty15DRPG}</td>
 		<td>{search.twenty15ORPG}</td>
@@ -216,7 +206,6 @@ class Previous extends React.Component {
 		<td>{search.twenty153pP}</td>
 		<td>{search.twenty15TO}</td>
 		<td>{search.twenty15FoulsPG}</td>
-		<td>{search.twenty15FoulsPGDrawn}</td>
 
 
       </tr>
@@ -233,7 +222,6 @@ class Previous extends React.Component {
 		<th>RPG</th>
 		<th>BPG</th>
 		<th>SPG</th>
-		<th>+/-</th>
 		<th>GP</th>
 		<th>GS</th>
 		<th>MPG</th>
@@ -250,7 +238,6 @@ class Previous extends React.Component {
 		<th>3pP</th>
 		<th>TO</th>
 		<th>FPG</th>
-		<th>DFPG</th>
       </tr>
     </thead>
       {this.props.Data.map(function(search, i) {
@@ -264,9 +251,8 @@ class Previous extends React.Component {
 		<td>{search.twenty15PlayoffRPG}</td>
 		<td>{search.twenty15PlayoffBPG}</td>
 		<td>{search.twenty15PlayoffSPG}</td>
-		<td>{search.twenty15PlayoffPlusMinus}</td>
 		<td>{search.twenty15PlayoffGP}</td>
-		<td>{search.twenty15PlayoffGamesStarted}</td>		
+		<td>{search.twenty15PlayoffgamesStarted}</td>		
 		<td>{search.twenty15PlayoffMPG}</td>
 		<td>{search.twenty15PlayoffDRPG}</td>
 		<td>{search.twenty15PlayoffORPG}</td>
@@ -281,8 +267,6 @@ class Previous extends React.Component {
 		<td>{search.twenty15Playoff3pP}</td>
 		<td>{search.twenty15PlayoffTO}</td>
 		<td>{search.twenty15PlayoffFoulsPG}</td>
-		<td>{search.twenty15PlayoffFoulsPGDrawn}</td>
-
 
       </tr>
     </tbody>
@@ -356,17 +340,6 @@ class Previous extends React.Component {
 				<td>{search.lastTSP}</td>
 				<td>{search.lasteffectiveFGP}</td>
 
-				<td>{search.lastRPGRank}</td>
-				<td>{search.lastAPGRank}</td>
-				<td>{search.lastPPGRank}</td>
-				<td>{search.lastWinPercentageRank}</td>
-				<td>{search.lastLossRank}</td>
-				<td>{search.lastWinRank}</td>
-				<td>{search.lastFoulsPGDrawnRank}</td>
-				<td>{search.lastFoulsPGDrawn}</td>
-				<td>{search.lastFoulsPGRank}</td>
-				<td>{search.lastFoulsPG}</td>
-				<td>{search.lastWinPercentage}</td>
 
 		    </tr>
 		    </tbody>
@@ -382,64 +355,3 @@ class Previous extends React.Component {
 }
 
 export default Previous;
-
-
-// lastGamesPlayedRank
-// lastGamesPlayed
-// lastPlusMinusRank
-// lastftARank
-// lastftMRank
-// lastftPRank
-// lastftA
-// lastftM
-// lastftP
-// lastMPGRank
-// lastDRPGRank
-// lastORPGRank
-// lastfgARank
-// lastfgMRank
-// lastfgPRank
-// last3pARank
-// last3pMRank
-// last3pPRank
-// lastBPGRank
-// lastSPGRank
-// lastRPGRank
-// lastAPGRank
-// lastPPGRank
-// lastWinPercentageRank
-// lastLossRank
-// lastWinRank
-// lastFoulsPGDrawnRank
-// lastFoulsPGDrawn
-// lastFoulsPGRank
-// lastFoulsPG
-// lastWinPercentage
-// lastLosses
-// lastWins
-
-
-
-
-
-
-// lastPPG
-// lastAPG
-// lastRPG
-// lastPlusMinus
-// lastGP
-// lastSeason
-// lastMPG
-// lastDRPG
-// lastORPG
-// lastfgA
-// lastfgM
-// lastfgP
-// last3pA
-// last3pM
-// last3pP
-// lastBPG
-// lastSPG
-// lastTORank
-// lastTO
-

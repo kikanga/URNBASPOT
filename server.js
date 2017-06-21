@@ -9,7 +9,7 @@ var logger 			= require('morgan'); // for debugging
 
 //Models
 var Player 			= require('./models/Player.js');
-// var Team 		= require('./models/Team.js');
+var Team 		= require('./models/Team.js');
 
 //Express
 var app = express();
@@ -60,6 +60,33 @@ app.get("/api/players", function(req, res) {
   });
 });
 
+app.get("/api/roster", function(req, res) {
+
+  // We will find all the records
+  Player.find({Tm: "CLE"}).exec(function(err, doc) {
+    if (err) {
+      console.log(err);
+    }
+    else {
+      res.send(doc);
+    }
+  });
+});
+
+app.get("/api/team", function(req, res) {
+
+  // We will find all the records
+  Team.find({}).exec(function(err, doc) {
+    if (err) {
+      console.log(err);
+    }
+    else {
+      res.send(doc);
+    }
+  });
+});
+
+//TO GET PLAYER INFO FOR THEIR PAGE
 app.get("/api/players/:PlayerID", function(req, res) {
 
   // We will find all the records
@@ -72,6 +99,22 @@ app.get("/api/players/:PlayerID", function(req, res) {
     }
   });
 });
+
+
+// TO GET TEAM ROSTER
+app.get("/team/:Tm", function(req, res) {
+
+  // We will find all the records
+  Player.find({Tm: req.params.Tm}).exec(function(err, doc) {
+    if (err) {
+      console.log(err);
+    }
+    else {
+      res.send(doc);
+    }
+  });
+});
+
 
 
 //Listening to the port 3000 or the environment PORT

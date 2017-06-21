@@ -9,16 +9,12 @@ render() {
 
 <div> 
     <Panel header="Team Roster">
-     	<p>Player1</p>
-     	<p>Player2</p>
-     	<p>Player3</p>
-     	<p>Player4</p>
-     	<p>Player5</p>
-     	<p>Player6</p>
-     	<p>Player7</p>
-     	<p>Player8</p>
-     	<p>Player9</p>
-     	<p>Player10</p>
+     {this.props.Data.map(function(search, i) {
+        return (           
+     	<a href={"/players/" + search.PlayerID}><p key={i}>{search.name}</p></a>
+  );
+          }.bind(this))}
+
     </Panel>
 </div>
     );

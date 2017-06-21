@@ -3,7 +3,7 @@ import React from "react";
 // Import sub-components
 import Navbar from "./Navbar";
 import Gameinfo from "../children/Team/Gameinfo";
-import News from "../children/Team/News";
+import Teamstats from "../children/Team/Teamstats";
 import Roster from "../children/Team/Roster";
 import Teaminfo from "../children/Team/Teaminfo";
 

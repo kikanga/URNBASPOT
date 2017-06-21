@@ -1,17 +1,16 @@
 import React from "react";
 
 // Import sub-components
-import Navbar from "./Navbar";
-import Current from "../children/Players/Current";
-import General from "../children/Players/General";
-import Playoffs from "../children/Players/Playoffs";
-import Previous from "../children/Players/Previous";
-import Shotchart from "../children/Players/Upcoming";
+// import Current from "../children/Players/Current";
+// import General from "../children/Players/General";
+// import Playoffs from "../children/Players/Playoffs";
+// import Previous from "../children/Players/Previous";
+import Shotchart from "../children/Players/Shotchart";
 
 // Helper Function
-import helpers from "./utils/helpers";
+import helpers from "../utils/helpers";
 
-class Main extends React.Component {
+class Player extends React.Component {
 
   constructor(props) {
     super(props);
@@ -36,20 +35,15 @@ class Main extends React.Component {
 return (
 
 <div className="container">
-      <div className="col-md-4"> <General />
-        <div className="col-md-8"> <Previous />
-        </div> 
-      </div>
-      <div className="col-md-4"> <Shot Chart />
-        <div className="col-md-8"> <Playoffs />
-        </div> 
-      </div>
+     
+      <div className="col-md-4"> <Shotchart />
+      
 
-
+</div>
 </div>
     );
   }
 }
 
 // Export the component back for use in other files
-export default xxxx;
+export default Player;

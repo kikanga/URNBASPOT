@@ -23,13 +23,17 @@ const helpers = {
 
   // This function hits our own server to retrieve the record of query results
   getPlayer: function(playerID) {
-    return axios.get("/api/players/" + playerID);
+    return axios.get("/players/" + playerID);
+  },
+
+  getRoster: function(Tm) {
+    return axios.get("/team/" + Tm);
   },
 
   // This function posts new searches to our database.
-  postHistory: function(args) {
-    return axios.post("/api", { location: location });
-  }
+  // postHistory: function(args) {
+  //   return axios.post("/api", { location: location });
+  // }
    
 };
 

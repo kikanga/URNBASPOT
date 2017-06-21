@@ -11,10 +11,8 @@ class General extends React.Component {
     };
     this.setTerm = this.setTerm.bind(this);
   }
-
   // componentDidUpdate(prevProps, prevState) {
   // }
-
   setTerm(term) {
     this.setState({
       BLAHHHHH: term
@@ -29,16 +27,16 @@ render() {
          <Grid>
           <Row>
             <Col xs={6} md={3}>
+              <p className="text-center container-fluid">{search.name} </p> 
               <Image src={search.image} rounded />
             </Col>
-              <p> Name: {search.name} </p> 
               <p> Height/Weight: {search.height} / {search.weight}  </p> 
-              <p> Weight: {search.weight}  </p>
               <p> Years Played: {search.seasonExp} </p> 
               <p> Position: {search.position}  </p> 
               <p> Jersey: # {search.jersey}  </p> 
               <p> Team: {search.teamCity} {search.teamName}  </p> 
-              <p> Drafted: Round {search.draftRound}, Pick #{search.draftNumber}  </p>
+              <p> Drafted: Round {search.draftRound}, Pick #{search.draftNumber}</p>
+              <p> College: {search.school} </p>
            </Row>
          </Grid>
       </div>
