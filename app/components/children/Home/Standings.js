@@ -2,7 +2,7 @@ import React from "react";
 import { Tabs, Tab, TabPane, Table} from 'react-bootstrap';
 
 // To use props in class components, reference `this.props`
-class News extends React.Component {
+class Standings extends React.Component {
   constructor(props) {
     super(props);
 	    this.state ={
@@ -111,4 +111,4 @@ class News extends React.Component {
   }
 }
 
-export default News;
+export default Standings;

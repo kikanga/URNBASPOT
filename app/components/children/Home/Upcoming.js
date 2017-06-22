@@ -1,13 +1,13 @@
 import React from "react";
 
 // To use props in class components, reference `this.props`
-class News extends React.Component {
+class Upcoming extends React.Component {
 render() {
   return (
+<div> hi 2 </div>
 
-<div> hi </div>
     );
   }
 }
 
-export default News;
+export default Upcoming;

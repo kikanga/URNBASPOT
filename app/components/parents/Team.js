@@ -1,47 +1,68 @@
 import React from "react";
 
+import Navbar from "../Navbar";
+
 // Import sub-components
-import Navbar from "./Navbar";
 import Gameinfo from "../children/Team/Gameinfo";
-import News from "../children/Team/News";
+import Teamstats from "../children/Team/Teamstats";
 import Roster from "../children/Team/Roster";
 import Teaminfo from "../children/Team/Teaminfo";
 
 // Helper Function
-import helpers from "./utils/helpers";
+import helpers from "../utils/helpers";
 
-class Main extends React.Component {
+class Team extends React.Component {
 
   constructor(props) {
-    super(props);
+    super();
+// Creating the states that will be passed to the children:
+//Roster and teamData is for team component 
     this.state = {
-      BLAHHHHH: ""
-    };
-    this.setTerm = this.setTerm.bind(this);
+      roster: [],
+     teamData: []
+     };
   }
 
-  // componentDidUpdate(prevProps, prevState) {
-  // }
+componentDidMount() {
+// team data
+    fetch("/api/team/" + this.props.params.teamInitials)
+      .then((resp) => resp.json()) // Transform the data into json
+      .then((data) => {
+        console.log(data)
+        this.setState({
+          teamData: data,
+        });
+        console.log(this.state.teamData)
+      });
 
-  setTerm(term) {
-    this.setState({
-      BLAHHHHH: term
-    });
+    fetch('/api/roster/'  + this.props.params.teamInitials)
+      .then((resp) => resp.json()) // Transform the data into json
+      .then((data2) => {
+        console.log(data2)
+        this.setState({
+          roster: data2,
+        });
+        console.log(this.state.roster)
+      })
   }
+
 
   render() {
+    console.log(this.props.params.teamInitials)
+console.log(this.state.teamData)
 
 //need to use react routers
 return (
 
-<div className="container">
-
-
-
+<div> 
+      <Navbar/>
+      <div className="col-md-10"> <Roster Roster={this.state.roster}/></div>
+      <div className="col-md-10"> <Teaminfo Data={this.state.teamData}/></div>
+      <div className="col-md-10"> <Teamstats Data={this.state.teamData}/></div>
 </div>
     );
   }
 }
 
 // Export the component back for use in other files
-export default xxxx;
+export default Team;

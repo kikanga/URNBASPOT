@@ -1,7 +1,6 @@
 import React from "react";
 
 // Import sub-components
-import Navbar from "./Navbar";
 import News from "../children/Home/News";
 import Standings from "../children/Home/Standings";
 import Upcoming from "../children/Home/Upcoming";
@@ -9,7 +8,7 @@ import Upcoming from "../children/Home/Upcoming";
 // Helper Function
 import helpers from "./utils/helpers";
 
-class Main extends React.Component {
+class Home extends React.Component {
 
   constructor(props) {
     super(props);

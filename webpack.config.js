@@ -16,8 +16,8 @@ module.exports = {
         test: /\.jsx?$/,
         // Webpack will only process files in our app folder. This avoids processing
         // node modules and server files unnecessarily
-        include: /app/,
-        loader: "babel",
+        include: [/app/, /config/],
+        loader: "babel-loader",
         query: {
           // These are the specific transformations we'll be using.
           presets: ["react", "es2015"]

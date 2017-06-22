@@ -1,15 +1,14 @@
 import React from "react";
 
 // Import sub-components
-import Navbar from "./Navbar";
 import Following from "../children/User/Following";
 import Userinfo from "../children/User/Userinfo";
 // import TBD from "../children/User/TBD";
 // Helper Function
 
-import helpers from "./utils/helpers";
+// import helpers from "./utils/helpers";
 
-class Main extends React.Component {
+class User extends React.Component {
 
   constructor(props) {
     super(props);
@@ -43,4 +42,4 @@ return (
 }
 
 // Export the component back for use in other files
-export default xxxx;
+export default User;

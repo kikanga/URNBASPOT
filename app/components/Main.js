@@ -1,14 +1,37 @@
 import React from "react";
+import { Switch, BrowserRouter } from 'react-router-dom'
+
+var router = require("react-router");
+var Link = require("react-router").Link;
+
+// Include the Route component for displaying individual routes
+var Route = router.Route;
+
+// Include the Router component to contain all our Routes
+// Here where we can pass in some configuration as props
+var Router = router.Router;
+var hashHistory = router.hashHistory;
+
+// Include the IndexRoute (catch-all route)
+var IndexRoute = router.IndexRoute;
 
 // Import sub-components
 import Navbar from "./Navbar";
 // import Home from "./parents/Home";
-// import Player from "./parents/Player";
-// import Team from "./parents/Team";
 // import User from "./parents/User";
+
+import Player from "./parents/Player";
+import Team from "./parents/Team";
+
 import Previous from "./children/Players/Previous";
-import Teaminfo from "./children/Team/Teaminfo";
+import General from "./children/Players/General";
+import Current from "./children/Players/Current";
+
 import Roster from "./children/Team/Roster";
+import Teamdash from "./children/Team/Teamdash";
+import Teamstats from "./children/Team/Teamstats";
+
+
 import Standings from "./children/Home/Standings";
 
 import helpers from "./utils/helpers.js";
@@ -22,28 +45,66 @@ import helpers from "./utils/helpers.js";
  //      __________
  //      <Route path="/user" Component={User}> </Route>
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// <div className="col-md-2"> <Roster /></div>
+// <div className="col-md-7"> <Teaminfo /></div>
+// <div className="col-md-3"> <Standings /></div>
+// <div className="col-md-12"> <button value="2544" ID="2544" onClick={this.handleClick}> LBJ </button> <Previous Name={this.state.playerData}/></div>
+
 
 class Main extends  React.Component {
 
   constructor(props) {
     super();
-    // If we are assigning an object property to an existing variable with the same name,
-    // we can use this shorthand assignment syntax
-    // Notice the data property here and the data const defined above the component
-    this.state = { name: "", playerID: "", playerData: []};
+// Creating the states that will be passed to the children:
+//Roster and teamData is for team component 
+    this.state = { name: "", playerID: "", playerData: [], roster: [], teamData: [], standings:[] };
     // this.setTerm = this.setTerm.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
-  // componentDidMount(playerID) {
+componentDidMount() {
+  //     fetch('/api/players')
+  //       .then((resp) => resp.json()) // Transform the data into json
+  //       .then((data) => {
+  //         console.log(data)
+  //         this.setState({
+  //           playerData: data,
+  //         });
+  //         console.log(this.state.playerData)
+  //       });
 
-  // }
+  // // // team roster from players db
+  //       fetch('/api/roster')
+  //       .then((resp) => resp.json()) // Transform the data into json
+  //       .then((data) => {
+  //         console.log(data)
+  //         this.setState({
+  //           roster: data,
+  //         });
+  //         console.log(this.state.roster)
+  //       })
+
+  // team data
+        fetch('/api/team/wPct2017')
+        .then((resp) => resp.json()) // Transform the data into json
+        .then((data) => {
+          console.log(data)
+          this.setState({
+            standings: data,
+          });
+          console.log(this.state.standings)
+        })
+  }
 
   componentDidUpdate() {
-    helpers.getPlayer(this.state.playerID).then(function (response) {
-    console.log(response);
-    this.setState({name: response.data})
-    }.bind(this));
+    // // After button is clicked (handleclick func), we run this function to go to the api and grab that player by ID
+    // helpers.getPlayer(this.state.playerID).then(function (response) {
+    // console.log(response);
+    // // set the state to the data recieved and then it will be passed down.
+    // this.setState({playerData: response.data})
+    // console.log("here")
+    // }.bind(this));
+
   }
 
   handleClick (event) {
@@ -60,24 +121,65 @@ class Main extends  React.Component {
     });
   }
 
+
   render() {
 
 //need to use react routers
 return (
+ 
 
 <div className="container">
+<Navbar/>
+<br></br>
+<div>
+<span className="col-md-7"> <a className="twitter-timeline" data-height="600" data-theme="dark" href="https://twitter.com/NBA">Tweets by NBA</a> </span>
+<span className="col-md-4"> <Standings Data={this.state.standings}/> </span>
+  
 
-<Navbar> </Navbar> 
-<div className="col-md-12"> <button value="2544" ID="2544" onClick={this.handleClick}> LBJ </button> <Previous Name={this.state.name}/></div>
-<div className="col-md-2"> <Roster /></div>
-<div className="col-md-7"> <Teaminfo /></div>
-<div className="col-md-3"> <Standings /></div>
+  </div>
+</div>
 
-
-</div> 
     );
-  }
+  } 
 }
 
 // Export the componen back for use in other files
 export default Main;
+
+// <BrowserRouter>
+// <div>
+
+//  <Route path="/team" component={() => (<Team Data={this.state.teamData} />)}> </Route>
+//   </div>
+// </BrowserRouter>
+
+
+       // <Link to="/team"><Teaminfo/></Link>
+            // <Link to="/players/:PlayerID"><Player/></Link>
+// 
+  // render() {
+  //   var filtered = this.state.playerData.filter((data) => {
+  //     if (data.name.toLowerCase().indexOf(this.state.name.toLowerCase()) != -1)
+  //       return true;
+  //     else
+  //       return false;
+  //   });
+
+ // <div>
+ //        <input
+ //          type="text"
+ //          placeholder="search"
+ //          value={this.state.name}
+ //          onChange={this.updateText}
+ //        />
+
+ //        <ul>
+ //        {
+ //          filtered.map((data) => {
+ //            return (
+ //              <p key={data.PlayerID} value={data.PlayerID} obj={data.name}> {data.name} </p>
+ //            );
+ //          })
+ //        }
+ //        </ul>
+ //      </div>

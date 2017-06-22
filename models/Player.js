@@ -118,6 +118,6 @@ var playerSchema = new mongoose.Schema({
     }             
 });
 
-var Player =  mongoose.model('Player', playerSchema);
+var Player =  mongoose.model('powerplayers', playerSchema);
 
 module.exports = Player;

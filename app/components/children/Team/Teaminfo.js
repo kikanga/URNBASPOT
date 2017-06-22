@@ -5,32 +5,50 @@ import { Panel, Image, ListGroup, ListGroupItem} from 'react-bootstrap';
 // To use props in class components, reference `this.props`
 class Teaminfo extends React.Component {
 
-  constructor(props) {
+ constructor(props) {
     super();
-    // If we are assigning an object property to an existing variable with the same name,
-    // we can use this shorthand assignment syntax
-    // Notice the data property here and the data const defined above the component
-    this.state = {
-      title: "Team Name"
-    };
-}
+// Creating the states that will be passed to the children:
+//Roster and teamData is for team component 
+    this.state = { teamData: []};
 
+  }
+
+componentDidMount() {
+// team data
+      //  fetch('/api/team/' + this.props.params.teamInitials)
+      // .then((resp) => resp.json()) // Transform the data into json
+      // .then((data) => {
+      //   console.log(data)
+      //   this.setState({
+      //     teamData: data,
+      //   });
+      //   console.log(this.state.teamData)
+      // })
+  }
 render() {
   return (
   <div>
-    <Panel header={this.state.title}>
-<Image src="#" responsive />
+     {this.props.Data.map(function(search, i) {
+        return (           
+     
+    <Panel header={search.teamName2017}> 
+<Image src={search.image} rounded responsive />
  <ListGroup>
-    <ListGroupItem header="Team Record">41-41</ListGroupItem>
-    <ListGroupItem header="Team Record">41-41</ListGroupItem>
-    <ListGroupItem header="Team Record">41-41</ListGroupItem>
-    <ListGroupItem header="Team Website" href="#">www.team.com</ListGroupItem>
+    <p>Team Record: {search.w2017}-{search.l2017}</p>
+    <p>Winning %: {search.wPct2017}</p>
+    <p>Team Website: <a href={search.website}>{search.website}</a> </p>
   </ListGroup>
     </Panel>
+  
+  );
+        }.bind(this))}
   </div>
+
 );
 
   }
 }
 
 export default Teaminfo;
+
+

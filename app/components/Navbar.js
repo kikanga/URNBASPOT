@@ -1,13 +1,19 @@
 import React from "react";
+import Search from "./Search";
+
 
 import { Collapse, Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 
 // To use props in class components, reference `this.props`
 class Navigbar extends React.Component {
 render() {
+
+var style ={
+    height: "50px"
+    }
   return (
     <div>
-      <Navbar inverse collapseOnSelect>
+      <Navbar inverse collapseOnSelect style={style} className="container">
         <Navbar.Header>
           <Navbar.Brand>
             <a href="#">NBA STATS</a>
@@ -16,18 +22,10 @@ render() {
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav>
-            <NavItem eventKey={1} href="#">Link</NavItem>
-            <NavItem eventKey={2} href="#">Link</NavItem>
-            <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-              <MenuItem eventKey={3.1}>Action</MenuItem>
-              <MenuItem eventKey={3.2}>Another action</MenuItem>
-              <MenuItem eventKey={3.3}>Something else here</MenuItem>
-              <MenuItem divider />
-              <MenuItem eventKey={3.3}>Separated link</MenuItem>
-            </NavDropdown>
           </Nav>
           <Nav pullRight>
-            <NavItem eventKey={1} href="#">Login   </NavItem>
+            <button className="btn"> <a href="/users/logout"> Logout   </a> </button> 
+            <Search />
           </Nav>
         </Navbar.Collapse>
       </Navbar>

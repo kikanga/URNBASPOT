@@ -1,55 +1,65 @@
 import React from "react";
 
+import Navbar from "../Navbar";
+
 // Import sub-components
-import Navbar from "./Navbar";
 import Current from "../children/Players/Current";
 import General from "../children/Players/General";
 import Playoffs from "../children/Players/Playoffs";
 import Previous from "../children/Players/Previous";
-import Shotchart from "../children/Players/Upcoming";
+import Shotchart from "../children/Players/Shotchart";
 
 // Helper Function
-import helpers from "./utils/helpers";
+import helpers from "../utils/helpers";
 
-class Main extends React.Component {
+class Player extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      BLAHHHHH: ""
+      playerData: []
     };
-    this.setTerm = this.setTerm.bind(this);
   }
 
-  // componentDidUpdate(prevProps, prevState) {
-  // }
 
-  setTerm(term) {
-    this.setState({
-      BLAHHHHH: term
-    });
+componentDidMount() {
+    fetch("/api/players/" + this.props.params.PlayerID)
+      .then((resp) => resp.json()) // Transform the data into json
+      .then((data) => {
+        console.log(data)
+        this.setState({
+          playerData: data,
+        });
+        console.log(this.state.playerData)
+      });
+ // this.setState({
+ //          teamData: this.props.Data,
+ //        });
+ //  }
+
+  // setTerm(term) {
+  //   this.setState({
+  //     BLAHHHHH: term
+  //   });
   }
 
   render() {
+        console.log(this.state.playerData)
+        console.log(this.props)
+
 
 //need to use react routers
 return (
 
 <div className="container">
-      <div className="col-md-4"> <General />
-        <div className="col-md-8"> <Previous />
-        </div> 
-      </div>
-      <div className="col-md-4"> <Shot Chart />
-        <div className="col-md-8"> <Playoffs />
-        </div> 
-      </div>
-
-
+<Navbar/>
+      <div className="col-md-12"> <General Data={this.state.playerData}/></div>
+      <div className="col-md-12"> <Current Data={this.state.playerData}/></div>
+      <div className="col-md-12"> <Previous Data={this.state.playerData}/></div>
 </div>
     );
   }
 }
 
 // Export the component back for use in other files
-export default xxxx;
+export default Player;
