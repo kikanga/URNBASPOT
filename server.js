@@ -26,9 +26,9 @@ else{
   mongoose.connect('mongodb://localhost/NBA');
 }
 
-var router = require('./routes/html.js');
+// var router = require('./routes/html.js');
 
-app.use('/', router);
+// app.use('/', router);
 
 var db = mongoose.connection;
 db.on('error', function (err) {
@@ -47,10 +47,11 @@ db.on('error', function (err) {
 
 // This is the route we will send GET requests to retrieve our most recent search data.
 // We will call this route the moment our page gets rendered
+
 app.get("/api/players", function(req, res) {
 
   // We will find all the records
-  Player.find({}).exec(function(err, doc) {
+  Player.find({name: "Russell Westbrook"}).exec(function(err, doc) {
     if (err) {
       console.log(err);
     }
@@ -59,6 +60,9 @@ app.get("/api/players", function(req, res) {
     }
   });
 });
+
+
+
 
 app.get("/api/roster", function(req, res) {
 
@@ -102,7 +106,7 @@ app.get("/api/players/:PlayerID", function(req, res) {
 
 
 // TO GET TEAM ROSTER
-app.get("/team/:Tm", function(req, res) {
+app.get("api/team/:Tm", function(req, res) {
 
   // We will find all the records
   Player.find({Tm: req.params.Tm}).exec(function(err, doc) {

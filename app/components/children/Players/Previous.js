@@ -22,7 +22,7 @@ class Previous extends React.Component {
       <div>
       <Tabs activeKey={this.state.key} onSelect={this.handleSelect} id="controlled-tab-example">
         <Tab eventKey={1} title="Traditional">
-<p className="text-center"> 2016-2017 Regular Season </p>
+<p className="text-center"> Previous Regular Seasons + Playoffs </p>
 <Table responsive striped bordered condensed hover>
 
      <thead>
@@ -300,18 +300,6 @@ class Previous extends React.Component {
 			<th>DRBP</th>
 			<th>TSP</th>
 			<th>EFGP</th>
-
-			<th>RPGRank</th>
-			<th>APGRank</th>
-			<th>PPGRank</th>
-			<th>WinPercentageRank</th>
-			<th>LossRank</th>
-			<th>WinRank</th>
-			<th>FoulsPGDrawnRank</th>
-			<th>FoulsPGDrawn</th>
-			<th>FoulsPGRank</th>
-			<th>FoulsPG</th>
-			<th>WinPercentage</th>
 
 		</tr>
 	</thead>

@@ -5,21 +5,32 @@ import { Panel, Image, ListGroup, ListGroupItem} from 'react-bootstrap';
 // To use props in class components, reference `this.props`
 class Teaminfo extends React.Component {
 
-  constructor(props) {
+ constructor(props) {
     super();
-    // If we are assigning an object property to an existing variable with the same name,
-    // we can use this shorthand assignment syntax
-    // Notice the data property here and the data const defined above the component
-    this.state = {
-      title: ""
-    };
-}
+// Creating the states that will be passed to the children:
+//Roster and teamData is for team component 
+    this.state = { teamData: []};
 
+  }
+
+componentDidMount() {
+
+// team data
+      fetch('/api/team')
+      .then((resp) => resp.json()) // Transform the data into json
+      .then((data) => {
+        console.log(data)
+        this.setState({
+          teamData: data,
+        });
+        console.log(this.state.teamData)
+      })
+  }
 render() {
   return (
   <div>
 
-     {this.props.Data.map(function(search, i) {
+     {this.state.teamData.map(function(search, i) {
         return (           
      
     <Panel header={search.teamName2017}> 

@@ -1,5 +1,5 @@
 import React from "react";
-import { HashRouter } from 'react-router-dom'
+import { Switch, BrowserRouter } from 'react-router-dom'
 
 var router = require("react-router");
 
@@ -17,14 +17,20 @@ var IndexRoute = router.IndexRoute;
 // Import sub-components
 import Navbar from "./Navbar";
 // import Home from "./parents/Home";
+// import User from "./parents/User";
+
 import Player from "./parents/Player";
 import Team from "./parents/Team";
-// import User from "./parents/User";
+
 import Previous from "./children/Players/Previous";
 import General from "./children/Players/General";
 import Current from "./children/Players/Current";
-// import Teamstats from "./children/Team/Teamstats";
+
+import Roster from "./children/Team/Roster";
 import Teaminfo from "./children/Team/Teaminfo";
+import Teamstats from "./children/Team/Teamstats";
+
+
 import Standings from "./children/Home/Standings";
 
 import helpers from "./utils/helpers.js";
@@ -56,26 +62,26 @@ class Main extends  React.Component {
   }
 
 componentDidMount() {
-    fetch('/api/players')
-      .then((resp) => resp.json()) // Transform the data into json
-      .then((data) => {
-        console.log(data)
-        this.setState({
-          playerData: data,
-        });
-        console.log(this.state.playerData)
-      });
+//     fetch('/api/players')
+//       .then((resp) => resp.json()) // Transform the data into json
+//       .then((data) => {
+//         console.log(data)
+//         this.setState({
+//           playerData: data,
+//         });
+//         console.log(this.state.playerData)
+//       });
 
-// team roster from players db
-      fetch('/api/roster')
-      .then((resp) => resp.json()) // Transform the data into json
-      .then((data) => {
-        console.log(data)
-        this.setState({
-          roster: data,
-        });
-        console.log(this.state.roster)
-      })
+// // team roster from players db
+//       fetch('/api/roster')
+//       .then((resp) => resp.json()) // Transform the data into json
+//       .then((data) => {
+//         console.log(data)
+//         this.setState({
+//           roster: data,
+//         });
+//         console.log(this.state.roster)
+//       })
 
 // team data
       fetch('/api/team')
@@ -118,17 +124,12 @@ componentDidMount() {
   render() {
 //need to use react routers
 return (
-<HashRouter>
-    
- <Route path="/" component={Player}>
+ 
 
+<div className="container">
+      <div> <Team /></div>
+</div>
 
-
- </Route>
-  <Route path="/team" component={Team}>
-  </Route>
-
-</HashRouter>
     );
   } 
 }
@@ -136,24 +137,19 @@ return (
 // Export the componen back for use in other files
 export default Main;
 
-// <button value="2544" ID="2544" onClick={this.handleClick}> LBJ </button> 
+// <BrowserRouter>
+// <div>
+
+//  <Route path="/team" component={() => (<Team Data={this.state.teamData} />)}> </Route>
+//   </div>
+// </BrowserRouter>
+
+
+
+
  // <Route path="/player/:PlayerID" Component={Player}> </Route>
  // <Route path="/team" Component={Team}> </Route>
  // <Route path="/user" Component={User}> </Route>
-
-// This is for the General info
-// componentDidMount() {
-//     fetch('/api/players')
-//       .then((resp) => resp.json()) // Transform the data into json
-//       .then((data) => {
-//         console.log(data)
-//         this.setState({
-//           playerData: data,
-//         });
-//         console.log(this.state.playerData)
-//       });
-//   }
-
 
 
   //   updateText(event) {

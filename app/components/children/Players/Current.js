@@ -1,5 +1,5 @@
 import React from "react";
-import { Tabs, Tab, TabPane, Table} from 'react-bootstrap';
+import { Image, Tabs, Tab, TabPane, Table} from 'react-bootstrap';
 
 
 // To use props in class components, reference `this.props`
@@ -234,6 +234,16 @@ class Current extends React.Component {
     </Table>
     </Tab>
       </Tabs>
+
+    <div>
+      {this.props.Data.map(function(search, i) {
+        return (            
+      <div key={i}>
+              <Image src={search.heatmaps} />
+      </div>
+          );
+          }.bind(this))}
+  </div>
 
     </div>
     );
