@@ -50,11 +50,18 @@ blur (){
 
   render() {
   	var style ={
-  	width: "200px",
-    height: "30px",
+  	width: "210px",
+    height: "50px",
     overflow: "auto",
-    color: "white"
+    color: "white",
+    zIndex: -1,
+    margin: "0px 0px -34px 0px",
   	}
+
+    var search = {
+      margin: "5px 0px 0px 25px",
+      }
+
 
 var dropdown;
 
@@ -75,8 +82,9 @@ if (this.state.open === true) {
       	        }
       	        </ul>)
 }
+
 		return (
-		<div>
+		<div style={search}>
 		 <FormGroup>
           <input type="text"
           	className="form-control js-quick-search tt-input" 
@@ -94,14 +102,7 @@ if (this.state.open === true) {
 
 export default Search;
 	        // <p key={data.PlayerID} value={data.PlayerID} obj={data.name}> {data.name} </p>
-	        // <input
-	          // type="text"
-	          // placeholder="search"
-	          // value={this.state.name}
-	          // onChange={this.updateText} />
-	          // filtered.map((data, i) => {
-	          	      // <MenuItem eventKey={i} key={data.PlayerID} value={data.PlayerID} obj={data.name}> {data.name}</MenuItem>
-// 
+
 
  // <Autosuggest
  //      datalist={this.state.playerData}

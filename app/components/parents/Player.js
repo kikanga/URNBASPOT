@@ -44,6 +44,8 @@ return (
 
 <div className="container">
 <Navbar/>
+<br></br>
+<br></br>
       <div className="col-md-3"> <General Data={this.state.playerData}/></div>
       <div className="col-md-5"> <Shotchart Data={this.state.playerData}/></div>
       <div className="col-md-12"> <Current Data={this.state.playerData}/></div>

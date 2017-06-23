@@ -18,7 +18,7 @@ class Standings extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="text-center">
        <Panel> 
       <Tabs activeKey={this.state.key} onSelect={this.handleSelect} id="controlled-tab-example">
         <Tab eventKey={1} title="West">

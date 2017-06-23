@@ -36,21 +36,6 @@ import Standings from "./children/Home/Standings";
 
 import helpers from "./utils/helpers.js";
 
- // // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
- //      <Route path="/" Component={Home}> </Route>
- //      ______________
- //      <Route path="/player/:id" Component={Player}> </Route>
- //      __________
- //      <Route path="/team" Component={Team}> </Route>
- //      __________
- //      <Route path="/user" Component={User}> </Route>
-// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-// <div className="col-md-2"> <Roster /></div>
-// <div className="col-md-7"> <Teaminfo /></div>
-// <div className="col-md-3"> <Standings /></div>
-// <div className="col-md-12"> <button value="2544" ID="2544" onClick={this.handleClick}> LBJ </button> <Previous Name={this.state.playerData}/></div>
-
-
 class Main extends  React.Component {
 
   constructor(props) {
@@ -63,26 +48,6 @@ class Main extends  React.Component {
   }
 
 componentDidMount() {
-  //     fetch('/api/players')
-  //       .then((resp) => resp.json()) // Transform the data into json
-  //       .then((data) => {
-  //         console.log(data)
-  //         this.setState({
-  //           playerData: data,
-  //         });
-  //         console.log(this.state.playerData)
-  //       });
-
-  // // // team roster from players db
-  //       fetch('/api/roster')
-  //       .then((resp) => resp.json()) // Transform the data into json
-  //       .then((data) => {
-  //         console.log(data)
-  //         this.setState({
-  //           roster: data,
-  //         });
-  //         console.log(this.state.roster)
-  //       })
 
   // team data
         fetch('/api/team/wPct2017')
@@ -116,17 +81,6 @@ componentDidMount() {
         })
   }
 
-  componentDidUpdate() {
-    // // After button is clicked (handleclick func), we run this function to go to the api and grab that player by ID
-    // helpers.getPlayer(this.state.playerID).then(function (response) {
-    // console.log(response);
-    // // set the state to the data recieved and then it will be passed down.
-    // this.setState({playerData: response.data})
-    // console.log("here")
-    // }.bind(this));
-
-  }
-
   handleClick (event) {
     event.preventDefault()
     // Set the parent to have the search term
@@ -151,11 +105,11 @@ return (
 <div className="container">
 <Navbar/>
 <br></br>
+<br></br>
 <div>
 <span className="col-md-7"> <a className="twitter-timeline" data-height="600" data-theme="dark" href="https://twitter.com/NBA">Tweets by NBA</a> </span>
 <span className="col-md-4"> <Standings All={this.state.standings} East={this.state.east} West={this.state.west}/> </span>
   
-
   </div>
 </div>
 
@@ -165,41 +119,3 @@ return (
 
 // Export the componen back for use in other files
 export default Main;
-
-// <BrowserRouter>
-// <div>
-
-//  <Route path="/team" component={() => (<Team Data={this.state.teamData} />)}> </Route>
-//   </div>
-// </BrowserRouter>
-
-
-       // <Link to="/team"><Teaminfo/></Link>
-            // <Link to="/players/:PlayerID"><Player/></Link>
-// 
-  // render() {
-  //   var filtered = this.state.playerData.filter((data) => {
-  //     if (data.name.toLowerCase().indexOf(this.state.name.toLowerCase()) != -1)
-  //       return true;
-  //     else
-  //       return false;
-  //   });
-
- // <div>
- //        <input
- //          type="text"
- //          placeholder="search"
- //          value={this.state.name}
- //          onChange={this.updateText}
- //        />
-
- //        <ul>
- //        {
- //          filtered.map((data) => {
- //            return (
- //              <p key={data.PlayerID} value={data.PlayerID} obj={data.name}> {data.name} </p>
- //            );
- //          })
- //        }
- //        </ul>
- //      </div>

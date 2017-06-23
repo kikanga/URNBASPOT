@@ -55,7 +55,9 @@ console.log(this.state.teamData)
 return (
 
 <div className="container"> 
-      <Navbar/>
+<Navbar/>
+<br></br>
+<br></br>
       <div className="col-md-3"> <Roster Roster={this.state.roster}/></div>
       <div className="col-md-5"> <Teaminfo Data={this.state.teamData}/></div>
       <div className="col-md-11"> <Teamstats Data={this.state.teamData}/></div>
