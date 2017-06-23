@@ -51,7 +51,7 @@ blur (){
   render() {
   	var style ={
   	width: "200px",
-    height: "100px",
+    height: "30px",
     overflow: "auto",
     color: "white"
   	}
@@ -81,7 +81,7 @@ if (this.state.open === true) {
           <input type="text"
           	className="form-control js-quick-search tt-input" 
            	  placeholder="Search" 
-          	  value={this.state.name}
+          	 value={this.state.name}
 	          onChange={this.updateText}
 	          onFocus= {this.focus}
 	          />
@@ -103,21 +103,10 @@ export default Search;
 	          	      // <MenuItem eventKey={i} key={data.PlayerID} value={data.PlayerID} obj={data.name}> {data.name}</MenuItem>
 // 
 
-
-
- //    }).map((item, index) => <p key={index}> {item.name} </p>)
-
-	// 	return (
-	// 	<div>
-	// 	 <FormGroup>
-
  // <Autosuggest
- //      datalist={filtered}
+ //      datalist={this.state.playerData}
  //      placeholder="Find a player here:"
- //      value={this.state.name}
- //      itemAdapter={PlayerFinder.instance}
- //      itemValuePropName="name"
- //      onChange={this.updateText}
+ //            value={this.state.name}
+ //            onChange={this.updateText}
+ //            onFocus= {this.focus}
  //      />
-
- //        </FormGroup>

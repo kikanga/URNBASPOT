@@ -1,5 +1,5 @@
 import React from "react";
-import { Tabs, Tab, TabPane, Table} from 'react-bootstrap';
+import { Tabs, Tab, TabPane, Table, Panel} from 'react-bootstrap';
 
 // To use props in class components, reference `this.props`
 class Standings extends React.Component {
@@ -19,6 +19,7 @@ class Standings extends React.Component {
   render() {
     return (
       <div>
+       <Panel> 
       <Tabs activeKey={this.state.key} onSelect={this.handleSelect} id="controlled-tab-example">
         <Tab eventKey={1} title="West">
 
@@ -97,7 +98,7 @@ class Standings extends React.Component {
   </Table>    
    </Tab>
       </Tabs>
-
+</Panel>
     </div>
     );
   }

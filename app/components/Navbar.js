@@ -12,24 +12,17 @@ var style ={
     height: "50px"
     }
   return (
-    <div className="container-fluid">
+    <div>
       <Navbar inverse collapseOnSelect style={style}>
         <Navbar.Header>
           <Navbar.Brand>
             <a href="/">NBA STATS</a>
           </Navbar.Brand>
-          <Navbar.Toggle />
         </Navbar.Header>
-        <Navbar.Collapse>
-          <Nav>
-          </Nav>
           <Nav pullRight>
-          <span>
+            <button className="btn text-center"> <a href="/users/logout"> Logout </a> </button> 
             <Search />
-            <button className="btn"> <a href="/users/logout"> Logout </a> </button> 
-          </span>
           </Nav>
-        </Navbar.Collapse>
       </Navbar>
      </div>
     );
