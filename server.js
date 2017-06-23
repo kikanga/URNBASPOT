@@ -35,7 +35,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //Connect when ready to deploy to Heroku
 if(process.env.NODE_ENV == 'production'){
-  //mongoose.connect('mongodb://heroku_656f71wk:temjb96md93bt81mjhepgbjheo@ds161901.mlab.com:61901/heroku_656f71wk');
+  mongoose.connect('mongodb://heroku_2ljtbgvc:4m850455rmes38her313rut664@ds135552.mlab.com:35552/heroku_2ljtbgvc');
 }
 else{
   mongoose.connect('mongodb://localhost/NBA');
