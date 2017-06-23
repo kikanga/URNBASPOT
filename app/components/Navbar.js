@@ -12,11 +12,11 @@ var style ={
     height: "50px"
     }
   return (
-    <div>
-      <Navbar inverse collapseOnSelect style={style} className="container">
+    <div className="container-fluid">
+      <Navbar inverse collapseOnSelect style={style}>
         <Navbar.Header>
           <Navbar.Brand>
-            <a href="#">NBA STATS</a>
+            <a href="/">NBA STATS</a>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
@@ -24,8 +24,10 @@ var style ={
           <Nav>
           </Nav>
           <Nav pullRight>
-            <button className="btn"> <a href="/users/logout"> Logout   </a> </button> 
+          <span>
             <Search />
+            <button className="btn"> <a href="/users/logout"> Logout </a> </button> 
+          </span>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

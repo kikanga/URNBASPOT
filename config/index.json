@@ -1,6 +1,0 @@
-// change dbUri
-// mongodb://username:password@host/database
-{
-  "dbUri": "mongodb://localhost/react_app",
-  "jwtSecret": "The property jwtSecret of the config object contains a secret phrase our application will use to sign tokens."
-}

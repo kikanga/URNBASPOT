@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, Tabs, Tab, TabPane, Table} from 'react-bootstrap';
+import { Image, Tabs, Tab, TabPane, Table, Panel} from 'react-bootstrap';
 
 
 // To use props in class components, reference `this.props`
@@ -20,9 +20,10 @@ class Current extends React.Component {
   render() {
     return (
       <div>
+       <Panel className="text-center" header="2016-2017 Season">
+
       <Tabs activeKey={this.state.key} onSelect={this.handleSelect} id="controlled-tab-example">
         <Tab eventKey={1} title="Traditional">
-<p className="text-center"> 2016-2017 Regular Season </p>
 <Table responsive striped bordered condensed hover>
 
      <thead>
@@ -174,20 +175,7 @@ class Current extends React.Component {
       <th>ORBP</th>
       <th>DRBP</th>
       <th>TSP</th>
-      <th>EFGP</th>
-
-      <th>RPGRank</th>
-      <th>APGRank</th>
-      <th>PPGRank</th>
-      <th>WinPercentageRank</th>
-      <th>LossRank</th>
-      <th>WinRank</th>
-      <th>FoulsPGDrawnRank</th>
-      <th>FoulsPGDrawn</th>
-      <th>FoulsPGRank</th>
-      <th>FoulsPG</th>
-      <th>WinPercentage</th>
-
+      
     </tr>
   </thead>
             {this.props.Data.map(function(search, i) {
@@ -213,19 +201,6 @@ class Current extends React.Component {
         <td>{search.currentORBP}</td>
         <td>{search.currentDRBP}</td>
         <td>{search.currentTSP}</td>
-        <td>{search.currenteffectiveFGP}</td>
-
-        <td>{search.currentRPGRank}</td>
-        <td>{search.currentAPGRank}</td>
-        <td>{search.currentPPGRank}</td>
-        <td>{search.currentWinPercentageRank}</td>
-        <td>{search.currentLossRank}</td>
-        <td>{search.currentWinRank}</td>
-        <td>{search.currentFoulsPGDrawnRank}</td>
-        <td>{search.currentFoulsPGDrawn}</td>
-        <td>{search.currentFoulsPGRank}</td>
-        <td>{search.currentFoulsPG}</td>
-        <td>{search.currentWinPercentage}</td>
 
         </tr>
         </tbody>
@@ -234,17 +209,7 @@ class Current extends React.Component {
     </Table>
     </Tab>
       </Tabs>
-
-    <div>
-      {this.props.Data.map(function(search, i) {
-        return (            
-      <div key={i}>
-              <Image src={search.heatmaps} />
-      </div>
-          );
-          }.bind(this))}
-  </div>
-
+      </Panel>
     </div>
     );
   }

@@ -28,12 +28,11 @@ render() {
       console.log(this.props.RosterData)
 
   return (
-<div> 
+<div className="text-center"> 
     <Panel header="Team Roster">
      {this.props.Roster.map(function(search, i) {
         return (           
-      <a href={"/players/" + search.PlayerID}>
-      <p key={i}>{search.name}</p></a>
+      <a href={"/players/" + search.PlayerID}> <p key={i}>{search.name}</p></a>
   );
           }.bind(this))}
 

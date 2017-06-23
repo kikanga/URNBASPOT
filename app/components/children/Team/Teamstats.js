@@ -1,5 +1,5 @@
 import React from "react";
-import { Tabs, Tab, TabPane, Table} from 'react-bootstrap';
+import { Tabs, Tab, TabPane, Table, Panel} from 'react-bootstrap';
 
 // To use props in class components, reference `this.props`
 // Copied this from my MERN. Will need to be adjusted but nice to have with the .map functionality.
@@ -24,9 +24,9 @@ class Teamstats extends React.Component {
   render() {
     return (
      <div>
+ <Panel className="text-center" header="2016-2017 Season">
       <Tabs activeKey={this.state.key} onSelect={this.handleSelect} id="controlled-tab-example">
         <Tab eventKey={1} title="Traditional">
-<p className="text-center"> 2016-2017 Regular Season </p>
 <Table responsive striped bordered condensed hover>
 
      <thead>
@@ -152,34 +152,42 @@ class Teamstats extends React.Component {
          <Table hover responsive>
     <thead>
     <tr>
-      <th>PER</th>
-      <th>VORP</th>
-      <th>BPM</th>
-      <th>OBPM</th>
-      <th>DBPM</th>
-      <th>WS</th>
-      <th>OWS</th>
-      <th>DWS</th>
-      <th>ftr</th>
-      <th>3par</th>
-      <th>USGP</th>
-      <th>ASTP</th>
-      <th>STLP</th>
-      <th>BLKP</th>
-      <th>TOVP</th>
-      <th>TRBP</th>
+      <th>FTFGA</th>
       <th>ORBP</th>
-      <th>DRBP</th>
-      <th>TSP</th>
-      <th>EFGP</th>
-
+      <th>TOVP</th>
+      <th>eFGP</th>
+      <th>DRtg</th>
+      <th>ORtg</th>
+      <th>Pace</th>
+      <th>SRS</th>
+      <th>SOS</th>
     </tr>
   </thead>
+
+        {this.props.Data.map(function(search, i) {
+        return (            
+      
+    <tbody>
+      <tr>
+    <td>{search.FTFGA2017}</td>
+    <td>{search.ORBP2017}</td>
+    <td>{search.TOVP2017}</td>
+    <td>{search.eFGP2017}</td>
+    <td>{search.DRtg2017}</td>
+    <td>{search.ORtg2017}</td>
+    <td>{search.Pace2017}</td>
+    <td>{search.SRS2017}</td>
+    <td>{search.SOS2017}</td>
+      </tr>
+    </tbody>
+    
+          );
+          }.bind(this))}
            
     </Table>
     </Tab>
       </Tabs>
-
+</Panel>
     </div>
     );
   }

@@ -25,48 +25,49 @@ class Standings extends React.Component {
 <Table responsive bordered condensed hover>
     <thead>
       <tr>
-        <th>#</th>
         <th>Team</th>
         <th>Record</th>
+        <th>Win %</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>1</td>
-        <td>SAS</td>
-        <td>62-20</td>
-      </tr>      
-      <tr>
-        <td>2</td>
-        <td>LAL</td>
-        <td>0-82</td>   
-      </tr>
+
+     {this.props.West.map(function(search, i) {
+        return (         
+      <tr key={i}>
+        <td><a href={"/team/" + search.teamInitials}>{search.teamInitials}</a></td>
+        <td>{search.w2017} - {search.l2017}</td>
+        <td>{search.wPct2017}</td>
+      </tr>  
+
+          );
+          }.bind(this))}
+     </tbody>
       
-    </tbody>
   </Table>    
    </Tab>
         <Tab eventKey={2} title="East">
 <Table responsive bordered condensed hover>
     <thead>
       <tr>
-        <th>#</th>
         <th>Team</th>
         <th>Record</th>
+        <th>Win %</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>1</td>
-        <td>CLE</td>
-        <td>61-21</td>
-      </tr>      
-      <tr>
-        <td>2</td>
-        <td>NYK</td>
-        <td>1-81</td>   
-      </tr>
-      
-    </tbody>
+
+     {this.props.East.map(function(search, i) {
+        return (         
+      <tr key={i}>
+        <td><a href={"/team/" + search.teamInitials}>{search.teamInitials}</a></td>
+        <td>{search.w2017} - {search.l2017}</td>
+        <td>{search.wPct2017}</td>
+      </tr>  
+
+          );
+          }.bind(this))}
+           </tbody>
   </Table>    
    </Tab>
 
@@ -74,32 +75,23 @@ class Standings extends React.Component {
 <Table responsive bordered condensed hover>
     <thead>
       <tr>
-        <th>#</th>
         <th>Team</th>
         <th>Record</th>
+        <th>Win %</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>1</td>
-        <td>SAS</td>
-        <td>62-20</td>
+
+     {this.props.All.map(function(search, i) {
+        return (         
+      <tr key={i}>
+        <td><a href={"/team/" + search.teamInitials}>{search.teamInitials}</a></td>
+        <td>{search.w2017} - {search.l2017}</td>
+        <td>{search.wPct2017}</td>
       </tr>  
-       <tr>
-        <td>2</td>
-        <td>CLE</td>
-        <td>61-21</td>
-      </tr>  
-      <tr>
-        <td>3</td>
-        <td>NYK</td>
-        <td>1-81</td>   
-      </tr>       
-      <tr>
-        <td>4</td>
-        <td>LAL</td>
-        <td>0-82</td>   
-      </tr>
+
+          );
+          }.bind(this))}
       
     </tbody>
   </Table>    

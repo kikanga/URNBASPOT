@@ -54,11 +54,11 @@ console.log(this.state.teamData)
 //need to use react routers
 return (
 
-<div> 
+<div className="container"> 
       <Navbar/>
-      <div className="col-md-10"> <Roster Roster={this.state.roster}/></div>
-      <div className="col-md-10"> <Teaminfo Data={this.state.teamData}/></div>
-      <div className="col-md-10"> <Teamstats Data={this.state.teamData}/></div>
+      <div className="col-md-3"> <Roster Roster={this.state.roster}/></div>
+      <div className="col-md-5"> <Teaminfo Data={this.state.teamData}/></div>
+      <div className="col-md-11"> <Teamstats Data={this.state.teamData}/></div>
 </div>
     );
   }

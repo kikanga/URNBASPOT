@@ -27,13 +27,14 @@ componentDidMount() {
   }
 render() {
   return (
-  <div>
+  <div className="text-center">
      {this.props.Data.map(function(search, i) {
         return (           
      
     <Panel header={search.teamName2017}> 
-<Image src={search.image} rounded responsive />
+<Image style={{width: 300, height: 300, margin: "auto"}} src={search.image} rounded responsive />
  <ListGroup>
+ <br></br>
     <p>Team Record: {search.w2017}-{search.l2017}</p>
     <p>Winning %: {search.wPct2017}</p>
     <p>Team Website: <a href={search.website}>{search.website}</a> </p>

@@ -57,7 +57,7 @@ class Main extends  React.Component {
     super();
 // Creating the states that will be passed to the children:
 //Roster and teamData is for team component 
-    this.state = { name: "", playerID: "", playerData: [], roster: [], teamData: [], standings:[] };
+    this.state = { name: "", playerID: "", playerData: [], roster: [], teamData: [], standings:[], east: [], west: [] };
     // this.setTerm = this.setTerm.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
@@ -93,6 +93,26 @@ componentDidMount() {
             standings: data,
           });
           console.log(this.state.standings)
+        })
+
+        fetch('/api/team/east')
+        .then((resp) => resp.json()) // Transform the data into json
+        .then((data) => {
+          console.log(data)
+          this.setState({
+            east: data,
+          });
+          console.log(this.state.east)
+        })
+
+       fetch('/api/team/west')
+        .then((resp) => resp.json()) // Transform the data into json
+        .then((data) => {
+          console.log(data)
+          this.setState({
+            west: data,
+          });
+          console.log(this.state.west)
         })
   }
 
@@ -133,7 +153,7 @@ return (
 <br></br>
 <div>
 <span className="col-md-7"> <a className="twitter-timeline" data-height="600" data-theme="dark" href="https://twitter.com/NBA">Tweets by NBA</a> </span>
-<span className="col-md-4"> <Standings Data={this.state.standings}/> </span>
+<span className="col-md-4"> <Standings All={this.state.standings} East={this.state.east} West={this.state.west}/> </span>
   
 
   </div>

@@ -19,10 +19,6 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var welcome = require('./routes/welcome');
 
-
-
-
-
 //Models
 var Player 			= require('./models/Player.js');
 var Team 		= require('./models/Team.js');
@@ -35,32 +31,23 @@ app.use(bodyParser.urlencoded({
 	extended: false
 }));
 
-
-
 app.use(express.static(path.join(__dirname, 'public')));
-
-
-
-
-
 
 //Connect when ready to deploy to Heroku
 if(process.env.NODE_ENV == 'production'){
-  mongoose.connect('mongodb://heroku_s5cq5hzp:ke5v43i6eoa0jru796vv7l0i3j@ds135532.mlab.com:35532/heroku_s5cq5hzp');
+  //mongoose.connect('mongodb://heroku_656f71wk:temjb96md93bt81mjhepgbjheo@ds161901.mlab.com:61901/heroku_656f71wk');
 }
 else{
   mongoose.connect('mongodb://localhost/NBA');
 }
 
 // var router = require('./routes/html.js');
-
 // app.use('/', router);
 
 var db = mongoose.connection;
 db.on('error', function (err) {
 	console.log('Mongoose Error: ', err);
 });
-
 
 // View Engine
 app.set('views', path.join(__dirname, 'views'));
@@ -77,22 +64,6 @@ app.set('view engine', 'handlebars');
 app.get('/welcome', function(rec, res){
   res.render('welcome');
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 app.use(cookieParser());
 
 // Set Static Folder
@@ -139,15 +110,6 @@ app.use(function (req, res, next) {
   next();
 });
 
-
-
-
-
-
-
-
-
-
 app.get("/api/players", function(req, res) {
 
   // We will find all the records
@@ -191,6 +153,34 @@ app.get("/api/team/wPct2017", function(req, res) {
 
   // We will find all the records
   Team.find({}).sort({wPct2017:-1}).exec(function(err, doc) {
+    if (err) {
+      console.log(err);
+    }
+    else {
+      res.send(doc);
+    }
+  });
+});
+
+
+app.get("/api/team/east", function(req, res) {
+
+  // We will find all the records
+  Team.find({conference: "East"}).sort({wPct2017:-1}).exec(function(err, doc) {
+    if (err) {
+      console.log(err);
+    }
+    else {
+      res.send(doc);
+    }
+  });
+});
+
+
+app.get("/api/team/west", function(req, res) {
+
+  // We will find all the records
+  Team.find({conference: "West"}).sort({wPct2017:-1}).exec(function(err, doc) {
     if (err) {
       console.log(err);
     }

@@ -32,15 +32,6 @@ componentDidMount() {
         });
         console.log(this.state.playerData)
       });
- // this.setState({
- //          teamData: this.props.Data,
- //        });
- //  }
-
-  // setTerm(term) {
-  //   this.setState({
-  //     BLAHHHHH: term
-  //   });
   }
 
   render() {
@@ -53,7 +44,8 @@ return (
 
 <div className="container">
 <Navbar/>
-      <div className="col-md-12"> <General Data={this.state.playerData}/></div>
+      <div className="col-md-3"> <General Data={this.state.playerData}/></div>
+      <div className="col-md-5"> <Shotchart Data={this.state.playerData}/></div>
       <div className="col-md-12"> <Current Data={this.state.playerData}/></div>
       <div className="col-md-12"> <Previous Data={this.state.playerData}/></div>
 </div>

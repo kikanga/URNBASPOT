@@ -1,5 +1,5 @@
 import React from "react";
-import { Tabs, Tab, TabPane, Table} from 'react-bootstrap';
+import { Tabs, Tab, TabPane, Table, Panel} from 'react-bootstrap';
 
 
 // To use props in class components, reference `this.props`
@@ -19,10 +19,10 @@ class Previous extends React.Component {
 
   render() {
     return (
+ <Panel className="text-center" header="Previous Regular Seasons + Playoffs">
       <div>
       <Tabs activeKey={this.state.key} onSelect={this.handleSelect} id="controlled-tab-example">
         <Tab eventKey={1} title="Traditional">
-<p className="text-center"> Previous Regular Seasons + Playoffs </p>
 <Table responsive striped bordered condensed hover>
 
      <thead>
@@ -327,8 +327,6 @@ class Previous extends React.Component {
 				<td>{search.lastDRBP}</td>
 				<td>{search.lastTSP}</td>
 				<td>{search.lasteffectiveFGP}</td>
-
-
 		    </tr>
 		    </tbody>
 		              );
@@ -336,8 +334,8 @@ class Previous extends React.Component {
 		</Table>
 		</Tab>
       </Tabs>
-
     </div>
+         </Panel>
     );
   }
 }
